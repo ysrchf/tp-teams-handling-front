@@ -7,7 +7,7 @@ const EditTeamForm = ({ team, onCancel, onUpdateTeam }) => {
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        // Initialise les champs avec les valeurs par défaut lors du chargement du composant
+
         setEditedTeam({ name: team.name, slogan: team.slogan });
     }, [team]);
 
@@ -20,10 +20,10 @@ const EditTeamForm = ({ team, onCancel, onUpdateTeam }) => {
     const validateForm = () => {
         const newErrors = {};
         if (!editedTeam.name.trim()) {
-            newErrors.name = 'Champ obligatoire';
+            newErrors.name = 'mandatory';
         }
         if (!editedTeam.slogan.trim()) {
-            newErrors.slogan = 'Champ obligatoire';
+            newErrors.slogan = 'mandatory';
         }
         setErrors(newErrors);
 
@@ -40,10 +40,10 @@ const EditTeamForm = ({ team, onCancel, onUpdateTeam }) => {
     return (
         <Container maxWidth="sm">
             <Paper elevation={3} style={{ padding: '20px', margin: '20px' }}>
-                <Typography variant="h5">Modifier l'équipe</Typography>
+                <Typography variant="h5">Modify team</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
-                        label="Nom"
+                        label="Name"
                         name="name"
                         value={editedTeam.name}
                         onChange={handleInputChange}

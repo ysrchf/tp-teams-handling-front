@@ -26,7 +26,7 @@ function App() {
     const handleTeamClick = useCallback( (team) => {
         setSelectedTeam(team)
         setTeamId(team.id)
-        setAddingTeam(false); // Close the create team form when selecting a team
+        setAddingTeam(false);
     }, []);
 
     const handleEditTeam = (team) => {
@@ -47,7 +47,7 @@ function App() {
 
             if (response.status === 201) {
                 fetchData()
-                setAddingTeam(false); // Close the create team form
+                setAddingTeam(false);
             } else {
                 console.error('Error adding team:', response.statusText);
             }
@@ -62,10 +62,9 @@ function App() {
             console.log(teamId)
             const response = await axios.put(`http://localhost:8000/api/teams/${teamId}`, updatedTeam);
 
-            // Vérifiez si la requête a réussi
             if (response.status === 200) {
-                setEditingTeam(false); // Fermez le formulaire de modification
-                setSelectedTeam(null); // Désélectionnez l'équipe après la mise à jour
+                setEditingTeam(false);
+                setSelectedTeam(null);
             } else {
                 console.error('Error update team:', response.statusText);
             }

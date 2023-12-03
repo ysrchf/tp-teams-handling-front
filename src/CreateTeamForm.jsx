@@ -15,10 +15,10 @@ const CreateTeamForm = ({ onCancel, onAddTeam }) => {
     const validateForm = () => {
         const newErrors = {};
         if (!teamData.name.trim()) {
-            newErrors.name = 'Champ obligatoire';
+            newErrors.name = 'mandatory';
         }
         if (!teamData.slogan.trim()) {
-            newErrors.slogan = 'Champ obligatoire';
+            newErrors.slogan = 'mandatory';
         }
         setErrors(newErrors);
 
@@ -35,10 +35,10 @@ const CreateTeamForm = ({ onCancel, onAddTeam }) => {
     return (
         <Container maxWidth="sm">
             <Paper elevation={3} style={{ padding: '20px', margin: '20px' }}>
-                <Typography variant="h5">Créer une nouvelle équipe</Typography>
+                <Typography variant="h5">Create a new team</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
-                        label="Nom"
+                        label="Name"
                         name="name"
                         value={teamData.name}
                         onChange={handleInputChange}
@@ -58,10 +58,10 @@ const CreateTeamForm = ({ onCancel, onAddTeam }) => {
                         margin="normal"
                     />
                     <Button type="submit" variant="contained" color="primary" style={{ marginRight: '10px' }}>
-                        Ajouter
+                        Add
                     </Button>
                     <Button onClick={onCancel} variant="outlined" color="secondary">
-                        Annuler
+                        Cancel
                     </Button>
                 </form>
             </Paper>
